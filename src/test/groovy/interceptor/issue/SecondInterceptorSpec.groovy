@@ -1,0 +1,27 @@
+package interceptor.issue
+
+
+import grails.test.mixin.TestFor
+import spock.lang.Specification
+
+/**
+ * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
+ */
+@TestFor(SecondInterceptor)
+class SecondInterceptorSpec extends Specification {
+
+    def setup() {
+    }
+
+    def cleanup() {
+
+    }
+
+    void "Test second interceptor matching"() {
+        when:"A request matches the interceptor"
+            withRequest(controller:"second")
+
+        then:"The interceptor does match"
+            interceptor.doesMatch()
+    }
+}
